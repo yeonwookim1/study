@@ -3,12 +3,107 @@
  */
 package com.java;
 
+import java.sql.Array;
+import java.util.Arrays;
+import java.util.Date;
+
+import com.java.algo.Solution;
+import com.java.algo.Solution1;
+import com.java.study.Api;
+import com.java.study.Container;
+import com.java.study.Generic;
+import com.java.study.Pair;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
+    public void stringTest(){
+        //StringBuffer
+        long preTime = System.currentTimeMillis();
+        StringBuffer ab = new StringBuffer("hello");
+        for(int i=0; i<1000; i++){
+            ab.append(" world");
+        }
+        long lowTime = System.currentTimeMillis();
+        System.out.println(preTime + " : " + lowTime);
+        System.out.println(lowTime - preTime);
+
+        //Stringbuilder
+        preTime = System.currentTimeMillis();
+        StringBuilder t1 = new StringBuilder("hello");
+        for(int i=0; i<1000; i++){
+            ab.append(" world");
+        }
+        lowTime = System.currentTimeMillis();
+        System.out.println(preTime + " : " + lowTime);
+        System.out.println(lowTime - preTime);
+
+        //String
+        preTime = System.currentTimeMillis();
+        String a = "hello";
+        for(int i=0; i<1000; i++){
+            a += "world";
+        }
+        lowTime = System.currentTimeMillis();
+        System.out.println(preTime + " : " + lowTime);
+        System.out.println(lowTime - preTime);
+
+        
+
+        String hi3 = new String("Test");
+        String hi4 = new String("Test");
+        System.out.println(System.identityHashCode(hi3));
+        System.out.println(System.identityHashCode(hi4));
+        hi3.intern();
+
+    }
+
+    public void genericTest(){
+        Generic <String> str = new Generic<String>();
+        System.out.println(str.compare("test", "test"));
+    
+
+        // Container<String> c1 = new Container<>();
+        // c1.setName("c1");
+        // System.out.println(c1.getName());
+
+        // Container<Integer> c2 = new Container<>();
+        // c2.setName(123);
+        // System.out.println(c2.getName());
+
+        Container<String,String> c1 = new Container<>();
+        c1.set("홍길동", "도적");
+        System.out.println(c1.getName() + c1.getJob());
+
+        Container<String,Integer> c2 = new Container<>();
+        c2.set("홍길동", 78456123);
+        System.out.println(c2.getName() + c2.getJob());
+
+    }
+
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        // System.out.println(new App().getGreeting());
+        // Solution sol = new Solution();
+        // int[] progresses = {93, 30, 55};
+        // int[] speeds = {1, 30, 5};
+        // int[] answer = sol.solution(progresses, speeds);
+
+        // for(int i=0; i<answer.length; i++){
+        //     System.out.println(answer[i]);
+        // }
+
+        // Solution1 s1 = new Solution1();
+        // String[] book = //{"119", "97674223", "1195524421"};
+        // // {"123","456","789"};
+        // {"12","123","1235","567","88"};
+        // System.out.println(s1.solution(book));
+
+        
+
+        new App().genericTest();
+
     }
 }
+
