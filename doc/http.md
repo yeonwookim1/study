@@ -76,3 +76,5 @@
    - GET : 조회, 쿼리, 파라미터를 통해 데이터 전송
    - Content-Type : application/json을 주로 사용(거의 표준)
 
+
+
